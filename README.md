@@ -1,5 +1,7 @@
 # Cordova Bluetooth status plugin
 
+[![NPM](https://nodei.co/npm/cordova-plugin-bluetooth-status.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/cordova-plugin-bluetooth-status/)
+
 Cordova Bluetooth status is a Cordova plugin allowing to check for Bluetooth adapter status.
 The plugin currently offers the following features:
 
