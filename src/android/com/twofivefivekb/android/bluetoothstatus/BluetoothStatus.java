@@ -51,7 +51,7 @@ public class BluetoothStatus extends CordovaPlugin {
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
 
-        mwebView = webView;
+        mwebView = super.webView;
         mcordova = cordova;
 
         bluetoothManager = (BluetoothManager) webView.getContext().getSystemService(Context.BLUETOOTH_SERVICE);
