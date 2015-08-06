@@ -51,7 +51,7 @@ public class BluetoothStatus extends CordovaPlugin {
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
 
-        mwebView = super.webView;
+        mwebView = webView;
         mcordova = cordova;
 
         bluetoothManager = (BluetoothManager) webView.getContext().getSystemService(Context.BLUETOOTH_SERVICE);
@@ -107,12 +107,7 @@ public class BluetoothStatus extends CordovaPlugin {
     }
 
     private void sendJS(final String js) {
-        mwebView.getView().post(new Runnable() {
-            @Override
-            public void run() {
-                mwebView.loadUrl(js);
-            }
-        });
+        mwebView.loadUrlIntoView(js);
     }
 
     //broadcast receiver for BT intent changes
