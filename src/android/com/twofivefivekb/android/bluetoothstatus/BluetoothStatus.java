@@ -107,7 +107,12 @@ public class BluetoothStatus extends CordovaPlugin {
     }
 
     private void sendJS(final String js) {
-        mwebView.loadUrlIntoView(js);
+        mcordova.getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                mwebView.loadUrl(js);
+            }
+        });
     }
 
     //broadcast receiver for BT intent changes

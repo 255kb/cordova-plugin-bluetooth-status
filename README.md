@@ -82,3 +82,8 @@ This event is triggered when the Bluetooth adapter gets disabled.
     window.addEventListener('BluetoothStatus.disabled', function() {
         console.log('Bluetooth has been disabled');
     });
+
+## Changelog
+
+### v1.0.3:
+- correct some build errors for older Android versions
