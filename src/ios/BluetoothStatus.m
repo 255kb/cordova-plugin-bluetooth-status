@@ -18,6 +18,13 @@
 
 - (void)initPlugin:(CDVInvokedUrlCommand*)command
 {
+    //set bluetooth capable
+    [[self commandDelegate] evalJs:[NSString stringWithFormat:@"cordova.plugins.BluetoothStatus.hasBT = true;"]];
+    //set bluetoothLE capable
+    [[self commandDelegate] evalJs:[NSString stringWithFormat:@"cordova.plugins.BluetoothStatus.hasBTLE = true;"]];
+
+    // set the initial state
+    [self centralManagerDidUpdateState: self.bluetoothManager];
 }
 
 - (void)enableBT:(CDVInvokedUrlCommand*)command
@@ -32,20 +39,11 @@
 
 - (void)pluginInitialize
 {
-    //set bluetooth capable
-	[[self commandDelegate] evalJs:[NSString stringWithFormat:@"cordova.plugins.BluetoothStatus.hasBT = true;"]];
-    
-    //set bluetoothLE capable
-	[[self commandDelegate] evalJs:[NSString stringWithFormat:@"cordova.plugins.BluetoothStatus.hasBTLE = true;"]];
-
     // Create CoreBluetooth manager
     self.bluetoothManager = [[CBCentralManager alloc]
                              initWithDelegate: self
                              queue: dispatch_get_main_queue()
                              options: @{CBCentralManagerOptionShowPowerAlertKey: @(NO)}];
-    
-    // set the initial state
-    [self centralManagerDidUpdateState: self.bluetoothManager];
 }
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {
