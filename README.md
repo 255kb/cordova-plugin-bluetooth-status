@@ -1,3 +1,6 @@
+
+## /!\ This package is not maintained anymore /!\
+
 # Cordova Bluetooth status plugin
 
 [![NPM](https://nodei.co/npm/cordova-plugin-bluetooth-status.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/cordova-plugin-bluetooth-status/)
